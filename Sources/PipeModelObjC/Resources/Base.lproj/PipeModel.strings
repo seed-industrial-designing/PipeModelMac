@@ -1,0 +1,25 @@
+/* 
+  PipeModel
+  Copyright © 2015-2024 Seed Industrial Designing Co., Ltd. All rights reserved.
+*/
+
+"Error_ioKit" = "Data transfer is failed.\n“%@ (%x)”";
+"Error_ioKit_recoverySuggestion" = "Restarting machine may resolve this issue.";
+
+"Error_pipe_NoDevice" = "Device is not connected.";
+"Error_pipe_NoDevice_recoverySuggestion" = "Please check that machine's power is ON and Mac and machine are connected with USB cable.";
+"Error_pipe_NoWifiDevice" = "Device is not found.";
+"Error_pipe_NoWifiDevice_recoverySuggestion" = "Please check that machine's power is ON and your Mac is connected to machine's Wi-Fi access point.";
+"Error_pipe_MultipleDevicesFound" = "Multiple devices are connected.";
+"Error_pipe_MultipleDevicesFound_recoverySuggestion" = "Please connect only one device to this Mac.";
+"Error_pipe_CouldNotSendData" = "Could not send data to machine.";
+"Error_pipe_CouldNotSendData_recoverySuggestion" = "Restarting machine may resolve this issue.";
+
+"Error_pipe_Timeout" = "Timeout";
+"Error_pipe_Timeout_recoverySuggestion" = "Restarting machine may resolve this issue.";
+"Error_pipe_CouldNotOpen" = "Could not open device.";
+"Error_pipe_CouldNotOpen_recoverySuggestion" = "Restarting machine may resolve this issue.";
+"Error_pipe_CouldNotReopen" = "Connection is failed.";
+"Error_pipe_CouldNotReopen_recoverySuggestion" = "Restarting machine may resolve this issue.";
+"Error_pipe_CouldNotGetEnoughData" = "Could not get enough data.";
+"Error_pipe_CouldNotGetEnoughData_recoverySuggestion" = "Restarting machine may resolve this issue.";

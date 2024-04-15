@@ -1,0 +1,28 @@
+/* 
+  PipeModel
+  Copyright © 2015-2024 Seed Industrial Designing Co., Ltd. All rights reserved.
+*/
+
+"Error_ioKit" = "マシンとの通信でエラーが発生しました。\n“%@ (%x)”";
+"Error_ioKit_recoverySuggestion" = "マシンの電源を入れ直すと解決する可能性があります。";
+
+"Error_pipe_NoDevice" = "マシンが接続されていません。";
+"Error_pipe_NoDevice_recoverySuggestion" = "マシンの電源が入っていてUSBケーブルでMacに正しく接続されていることを確認してください。";
+"Error_pipe_NoDevice_recoverySuggestion_WIN" = "マシンの電源が入っていて USB ケーブルで PC に正しく接続されていることを確認してください。";
+"Error_pipe_NoWifiDevice" = "マシンが見つかりませんでした。";
+"Error_pipe_NoWifiDevice_recoverySuggestion" = "マシンの電源が入っていてMacのWi-Fiが正しくマシンに接続されていることを確認してください。";
+"Error_pipe_NoWifiDevice_recoverySuggestion_WIN" = "マシンの電源が入っていて PC の Wi-Fi が正しくマシンに接続されていることを確認してください。";
+"Error_pipe_MultipleDevicesFound" = "複数のマシンが接続されています。";
+"Error_pipe_MultipleDevicesFound_recoverySuggestion" = "使用するマシンのみMacに接続してください。";
+"Error_pipe_MultipleDevicesFound_recoverySuggestion_WIN" = "使用するマシンのみ PC に接続してください。";
+
+"Error_pipe_Timeout" = "マシンからの応答がありませんでした。";
+"Error_pipe_Timeout_recoverySuggestion" = "マシンの電源を入れ直すと解決する可能性があります。";
+"Error_pipe_CouldNotOpen" = "マシンとの通信を開始できませんでした。";
+"Error_pipe_CouldNotOpen_recoverySuggestion" = "マシンの電源を入れ直すと解決する可能性があります。";
+"Error_pipe_CouldNotReopen" = "マシンとの通信が切断されました。";
+"Error_pipe_CouldNotReopen_recoverySuggestion" = "マシンの電源を入れ直すと解決する可能性があります。";
+"Error_pipe_CouldNotGetEnoughData" = "マシンから十分なデータを受信できませんでした。";
+"Error_pipe_CouldNotGetEnoughData_recoverySuggestion" = "マシンの電源を入れ直すと解決する可能性があります。";
+"Error_pipe_CouldNotSendData" = "マシンにデータを転送できませんでした。";
+"Error_pipe_CouldNotSendData_recoverySuggestion" = "マシンの電源を入れ直すと解決する可能性があります。";

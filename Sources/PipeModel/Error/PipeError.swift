@@ -24,9 +24,9 @@ import Foundation
 
 #if os(Linux)
 
-enum PipeError: String, CustomNSError
+public enum PipeError: String, CustomNSError
 {
-	static let errorDomain = "DeviceError"
+	public static let errorDomain = "DeviceError"
 	
 	case timeout
 	case couldNotOpen
@@ -37,7 +37,7 @@ enum PipeError: String, CustomNSError
 	case multipleDevicesFound
 	case couldNotSendData
 	
-	var localizedDescription: String { rawValue }
+	public var localizedDescription: String { rawValue }
 }
 
 #else

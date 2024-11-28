@@ -50,7 +50,7 @@ extension NSError
 {
 #if os(Linux)
 	public var pipeErrorCode: PipeError? { self as? PipeError }
-	public convenience init(deviceErrorCode: PipeError) { self = deviceErrorCode as NSError }
+	public convenience init(deviceErrorCode: PipeError) { self.init(domain: PipeError.errorDomain, code: deviceErrorCode.errorCode) }
 #else
 	public var pipeErrorCode: PipeErrorCode?
 	{

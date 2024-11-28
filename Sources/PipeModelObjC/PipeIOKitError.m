@@ -20,6 +20,8 @@
 // SOFTWARE.
 //
 
+#ifdef OBJC_AVAILABLE
+
 #import "PipeIOKitError.h"
 #import "PipeError.h"
 
@@ -60,4 +62,6 @@ NSError* MakeNSErrorWithIOReturn(IOReturn ret)
 		NSLocalizedRecoverySuggestionErrorKey: [bundle localizedStringForKey: @"Error_ioKit_recoverySuggestion" value: nil table: table]
 	}];
 }
+#endif
+
 #endif

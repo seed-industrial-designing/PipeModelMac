@@ -27,6 +27,9 @@ let package = Package(
 			cSettings: [
 				.headerSearchPath("Communicator"),
 				.headerSearchPath("Error")
+			],
+			swiftSettings: [
+				.define("OBJC_AVAILABLE", .when(platforms: [.macOS, .iOS]))
 			]
 		),
 		.target(

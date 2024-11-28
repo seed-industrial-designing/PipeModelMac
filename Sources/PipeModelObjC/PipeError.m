@@ -20,6 +20,8 @@
 // SOFTWARE.
 //
 
+#ifdef OBJC_AVAILABLE
+
 #import "PipeError.h"
 
 NSString* const PipeErrorDomain = @"DeviceError";
@@ -53,3 +55,5 @@ NSError* PipeErrorMakeWithCode(PipeErrorCode code)
 	}
 	return [NSError errorWithDomain: PipeErrorDomain code: code userInfo: userInfo];
 }
+
+#endif

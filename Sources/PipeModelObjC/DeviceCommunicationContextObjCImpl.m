@@ -20,6 +20,8 @@
 // SOFTWARE.
 //
 
+#ifdef OBJC_AVAILABLE
+
 #import "DeviceCommunicationContextObjCImpl.h"
 
 @implementation DeviceCommunicationContextObjCImpl
@@ -39,3 +41,5 @@
 }
 
 @end
+
+#endif

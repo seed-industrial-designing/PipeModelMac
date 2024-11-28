@@ -20,6 +20,8 @@
 // SOFTWARE.
 //
 
+#if !os(Linux)
+
 import Foundation
 import PipeModelObjC
 
@@ -30,3 +32,5 @@ extension DeviceCommunicationContextObjCImpl: DeviceCommunicationContext
 		try await read_objc(length: (length.map { .init($0) } ?? .max))
 	}
 }
+
+#endif

@@ -32,7 +32,7 @@ let package = Package(
 		.target(
 			name: "PipeModel",
 			dependencies: [
-				.target(name: "PipeModelObjC")
+				.target(name: "PipeModelObjC", condition: .when(platforms: [.macOS, .iOS]))
 			]
 		),
 		.testTarget(

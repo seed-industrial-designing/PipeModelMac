@@ -20,61 +20,27 @@
 // SOFTWARE.
 //
 
+#if os(macOS)
+
 import Foundation
-
-#if os(Linux)
-
-enum PipeError: String, CustomNSError
-{
-	static let errorDomain = "DeviceError"
-	
-	case timeout
-	case couldNotOpen
-	case couldNotReopen
-	case couldNotGetEnoughData
-	case noDevice
-	case noWifiDevice
-	case multipleDevicesFound
-	case couldNotSendData
-	
-	var localizedDescription: String { rawValue }
-}
-
-#else
-
+import IOKit
 import PipeModelObjC
-
-#endif
 
 extension NSError
 {
-#if os(Linux)
-	public var pipeErrorCode: PipeError? { self as? PipeError }
-	public convenience init(deviceErrorCode: PipeError) { deviceErrorCode as NSError }
-#else
-	public var pipeErrorCode: PipeErrorCode?
+	final public var ioReturn: IOReturn?
 	{
-		if (domain == PipeErrorDomain) {
-			return PipeErrorCode(rawValue: code)
+		if (domain == PipeIOKitErrorDomain) {
+			return IOReturn(code)
 		} else {
 			return nil
 		}
 	}
-	public convenience init(deviceErrorCode: PipeErrorCode) { self.init(domain: PipeErrorDomain, code: deviceErrorCode.rawValue) }
-#endif
 }
 
 extension Error
 {
-#if os(Linux)
-	public var pipeErrorCode: PipeError? { self as? PipeError }
-	public init(deviceErrorCode: PipeError) where Self == PipeError { self = deviceErrorCode }
-#else
-	public var pipeErrorCode: PipeErrorCode? { (self as NSError).pipeErrorCode }
-	
-	public init(deviceErrorCode: PipeErrorCode) where Self == NSError
-	{
-		self = NSError(deviceErrorCode: deviceErrorCode)
-	}
-#endif
+	public var ioReturn: IOReturn? { (self as NSError).ioReturn }
 }
+
+#endif

@@ -10,7 +10,12 @@ let package = Package(
 	products: [
 		.library(
 			name: "PipeModel",
-			targets: ["PipeModel", "PipeModelObjC"]
+			targets: ["PipeModel"]
+		),
+		.library(
+			name: "PipeModelObjC",
+			type: .static,
+			targets: ["PipeModelObjC"]
 		),
 	],
 	dependencies: [
@@ -27,12 +32,15 @@ let package = Package(
 			cSettings: [
 				.headerSearchPath("Communicator"),
 				.headerSearchPath("Error")
+			],
+			swiftSettings: [
+				.define("OBJC_AVAILABLE", .when(platforms: [.macOS, .iOS]))
 			]
 		),
 		.target(
 			name: "PipeModel",
 			dependencies: [
-				.target(name: "PipeModelObjC")
+				.target(name: "PipeModelObjC", condition: .when(platforms: [.macOS, .iOS]))
 			]
 		),
 		.testTarget(

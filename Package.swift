@@ -10,12 +10,7 @@ let package = Package(
 	products: [
 		.library(
 			name: "PipeModel",
-			targets: ["PipeModel"]
-		),
-		.library(
-			name: "PipeModelObjC",
-			type: .static,
-			targets: ["PipeModelObjC"]
+			targets: ["PipeModel", "PipeModelObjC"]
 		),
 	],
 	dependencies: [

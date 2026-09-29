@@ -3,6 +3,50 @@
 
 import PackageDescription
 
+#if canImport(ObjectiveC)
+let libraryTargetNames = [
+	"PipeModel", "PipeModelObjC"
+]
+let targets: [Target] = [
+	.target(
+		name: "PipeModelObjC",
+		dependencies: [],
+		resources: [
+			.process("Resources")
+		],
+		publicHeadersPath: "Headers",
+		cSettings: [
+			.headerSearchPath("Communicator"),
+			.headerSearchPath("Error")
+		],
+		swiftSettings: [
+			.define("OBJC_AVAILABLE", .when(platforms: [.macOS, .iOS]))
+		]
+	),
+	.target(
+		name: "PipeModel",
+		dependencies: [
+			.target(name: "PipeModelObjC", condition: .when(platforms: [.macOS, .iOS]))
+		]
+	),
+	.testTarget(
+		name: "PipeModelTests",
+		dependencies: [
+			.target(name: "PipeModel")
+		]
+	),
+]
+#else
+let libraryTargetNames = [
+	"PipeModel"
+]
+let targets: [Target] = [
+	.target(
+		name: "PipeModel"
+	),
+]
+#endif
+
 let package = Package(
 	name: "PipeModel",
 	defaultLocalization: "en",
@@ -10,39 +54,11 @@ let package = Package(
 	products: [
 		.library(
 			name: "PipeModel",
-			targets: ["PipeModel", "PipeModelObjC"]
+			targets: libraryTargetNames
 		),
 	],
 	dependencies: [
 		// .package(url: /* package url */, from: "1.0.0"),
 	],
-	targets: [
-		.target(
-			name: "PipeModelObjC",
-			dependencies: [],
-			resources: [
-				.process("Resources")
-			],
-			publicHeadersPath: "Headers",
-			cSettings: [
-				.headerSearchPath("Communicator"),
-				.headerSearchPath("Error")
-			],
-			swiftSettings: [
-				.define("OBJC_AVAILABLE", .when(platforms: [.macOS, .iOS]))
-			]
-		),
-		.target(
-			name: "PipeModel",
-			dependencies: [
-				.target(name: "PipeModelObjC", condition: .when(platforms: [.macOS, .iOS]))
-			]
-		),
-		.testTarget(
-			name: "PipeModelTests",
-			dependencies: [
-				.target(name: "PipeModel")
-			]
-		),
-	]
+	targets: targets
 )
